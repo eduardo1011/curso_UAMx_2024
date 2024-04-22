@@ -9,6 +9,26 @@ display(HTML("<style>.container { width:95% !important; }</style>"))
 GCF_000214175
 
 
+#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+import re
+def open_file(file = ''):
+    fas = {}
+    with open(file) as fq:
+        for line in fq:
+            line = line.rstrip()
+            if '>' in line:
+                header = re.sub('>', '', line)
+                s = ''
+            else:
+                s += line
+            fas[header] =  s
+    return fas
+
+
+
+
+####
 
 
 
