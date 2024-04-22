@@ -5,7 +5,8 @@
 from IPython.core.display import display, HTML, Javascript
 display(HTML("<style>.container { width:95% !important; }</style>"))
 
-
+# código de ensamble
+GCF_000214175
 
 
 
