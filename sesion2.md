@@ -31,11 +31,7 @@ https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.8.1/ncbi-blast-2.8.1+-wi
 
 ### comandos para abri el archivo enzymes.txt con sitios de corte
 ```
-enzimas = {}
-with open('enzymes.txt', 'r') as fq:
-    for i in fq:
-        i = i.rstrip()
-        enzimas[i.split('\t')[0]] = [i.split('\t')[1], i.split('\t')[2]]
+circle_plot(sec = genoma, window = 3500, VAL = 0.9, radio1 = 0.35, radio2 = 0.5, figsize = 5, showborde = True, ini = 90)
 ```
 
 
