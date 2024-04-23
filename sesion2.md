@@ -50,6 +50,11 @@ with open('enzymes.txt', 'r') as fq:
 
 # widgets
 
+### forzar la instalacion de la version 7.7.0
+```
+python -mpip install --force-reinstall ipywidgets==7.7.0
+```
+
 ```
 import numpy as np
 from ipywidgets import Button, GridBox, Layout, ButtonStyle, Box, HBox, VBox
