@@ -6,13 +6,13 @@
 ################################################################################################
 ################################################################################################
 
-# Descargar el módulo circleplot
+### Descargar el módulo circleplot
 
 
-# Descargar base de datos 16S-ITGDB
+### Descargar base de datos 16S-ITGDB
 https://1drv.ms/u/s!ArGs92xOZGDEoj51fPQo2s0yxab7?e=6AQsIc
 
-# Descargar programas de Blast
+### Descargar programas de Blast
 
 https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.8.1/ncbi-blast-2.8.1+-win64.exe
 
