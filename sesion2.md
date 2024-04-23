@@ -79,6 +79,15 @@ def restriction(enz, agregar):
 out = widgets.interactive_output(restriction, {'enz':enz, 'agregar':agregar})
 
 
+```
+for i in fas:
+    if re.findall('TGTGA.*TCACT', fas[i]) != []:
+        print(i)
+        print(re.findall('.....TGTGA.*TCACT', fas[i]))
+        print('#-----------------------------------------------')
+```
+
+
 HBox([VBox([enz, agregar]), out])
 ```
 
