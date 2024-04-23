@@ -34,6 +34,12 @@ https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.8.1/ncbi-blast-2.8.1+-wi
 circle_plot(sec = genoma, window = 3500, VAL = 0.9, radio1 = 0.35, radio2 = 0.5, figsize = 5, showborde = True, ini = 90)
 ```
 
+```
+for w in list(range(1000, 10000, 500)):
+    print(w)
+    circle_plot(sec = genoma, window = w, VAL = 1.2, radio1 = 0.35, radio2 = 0.5, figsize = 5, showborde = False, ini = 0)
+```
+
 
 
 
