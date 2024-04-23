@@ -29,7 +29,7 @@ https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.8.1/ncbi-blast-2.8.1+-wi
 ################################################################################################
 ################################################################################################
 
-### comandos para abri el archivo enzymes.txt con sitios de corte
+### comando para hacer graficas
 ```
 circle_plot(sec = genoma, window = 3500, VAL = 0.9, radio1 = 0.35, radio2 = 0.5, figsize = 5, showborde = True, ini = 90)
 ```
