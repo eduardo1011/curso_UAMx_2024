@@ -40,7 +40,13 @@ for w in list(range(1000, 10000, 500)):
     circle_plot(sec = genoma, window = w, VAL = 1.2, radio1 = 0.35, radio2 = 0.5, figsize = 5, showborde = False, ini = 0)
 ```
 
-
+```
+enzimas = {}
+with open('enzymes.txt', 'r') as fq:
+    for i in fq:
+        i = i.rstrip()
+        enzimas[i.split('\t')[0]] = [i.split('\t')[1], i.split('\t')[2]]
+```
 
 
 
