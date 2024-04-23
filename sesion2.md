@@ -48,6 +48,34 @@ with open('enzymes.txt', 'r') as fq:
         enzimas[i.split('\t')[0]] = [i.split('\t')[1], i.split('\t')[2]]
 ```
 
+# widgets
+
+```
+import numpy as np
+from ipywidgets import Button, GridBox, Layout, ButtonStyle, Box, HBox, VBox
+import ipywidgets as widgets
+from IPython.display import clear_output, display
+
+enz = widgets.Dropdown(options = sorted([i+' ('+enzimas[i][1]+')' for i in enzimas]), value = sorted([i+' ('+enzimas[i][1]+')' for i in enzimas])[0], disabled = False,
+                                   layout = Layout(width='290px', height='25px'))
+agregar = widgets.SelectionSlider(options=list(range(0, 101, 5)),value=20,description='Add:',disabled=False,
+                                continuous_update=False,orientation='horizontal',readout=True,
+                                   layout=Layout(width='300px', height='25px'))
+
+
+
+def restriction(enz, agregar):
+    E = enz.split(' ')[0]
+    cortes = [[i.start()+1, i.end()+1] for i in re.finditer(enzimas[E][0], genoma)]
+    print('Frequency=', len(cortes), enzimas[E])
+    uu = ['   Ini= ' + str(i[0]) + '   Fin= ' + str(i[1]) + '   ' + genoma[i[0]-1-agregar:i[0]-1]+enz.split(' ')[1]+genoma[i[1]-1:i[1]-1+agregar] for i in cortes]
+    ww = widgets.Select(options=uu,description='Result:', rows=15,disabled=False, layout=Layout(width='1000px', height='250px'))
+    display(ww)
+out = widgets.interactive_output(restriction, {'enz':enz, 'agregar':agregar})
+
+
+HBox([VBox([enz, agregar]), out])
+```
 
 
 
