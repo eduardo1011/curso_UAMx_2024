@@ -78,6 +78,13 @@ def restriction(enz, agregar):
     display(ww)
 out = widgets.interactive_output(restriction, {'enz':enz, 'agregar':agregar})
 
+HBox([VBox([enz, agregar]), out])
+```
+
+
+
+# -
+
 
 ```
 for i in fas:
@@ -87,10 +94,3 @@ for i in fas:
         print('#-----------------------------------------------')
 ```
 
-
-HBox([VBox([enz, agregar]), out])
-```
-
-
-
-# -
