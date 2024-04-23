@@ -25,17 +25,61 @@ def open_file(file = ''):
             fas[header] =  s
     return fas
 
+#>>>>>>>>>>>>>>>>>>>>
+
+gc_skews = []
+for i in range(0,len(seq), window_size):
+    gc_skew = (seq[i:i+window_size].upper().count("G") - seq[i:i+window_size].upper().count("C")) / (seq[i:i+window_size].upper().count("G") + seq[i:i+window_size].upper().count("C"))
+    gc_skews.append(gc_skew)
+gc_skews.append((seq[i:].upper().count("G") - seq[i:].upper().count("C")) / (seq[i:].upper().count("G") + seq[i:].upper().count("C")))
+gc_skew_positive = np.array(gc_skews)
+gc_skew_negative = np.array(gc_skews)
+gc_skew_positive[gc_skew_positive<0] = 0 
+gc_skew_negative[gc_skew_positive>0] = 0
+
+#---------------------------------------------
+
+gc_count = []
+for i in range(0,len(seq), window_size):
+    gc_amount = (seq[i:i+window_size].upper().count("G") + seq[i:i+window_size].upper().count("C")) / window_size
+    gc_count.append(gc_amount)
+gc_count.append((seq[i:].upper().count("G") + seq[i:i+window_size].upper().count("C")) / (len(seq)-i))
+
+x = np.array(gc_count)
+
+gc_amounts = []
+for i in x:
+    cal = np.log10(i / np.mean(x))
+    if cal < 0:
+        gc_amounts.append(cal)
+    if cal > 0:
+        gc_amounts.append(cal)
+gc_amounts = np.array(gc_amounts)
+
+gc_amounts_positive = np.array(gc_amounts)
+gc_amounts_negative = np.array(gc_amounts)
+gc_amounts_positive[gc_amounts_positive<0] = 0 # los negativos se vuelven 0, y se mantienen los positivos
+gc_amounts_negative[gc_amounts_positive>0] = 0
+
+minimo, maximo = abs(gc_skew_positive).min(), abs(gc_skew_positive).max()
 
 
+######################################
 
-####
+import numpy as np
+import matplotlib.pyplot as plt
 
+fig = plt.figure(figsize=(20, 4))
+ax = fig.add_axes([0, 0, 1, 1])
 
+ax.plot(range(len(gc_skew_positive)), gc_skew_positive, lw = 2, color = 'green')
+ax.plot(range(len(gc_skew_negative)), gc_skew_negative, lw = 2, color = 'red')
 
+ax.plot(range(len(gc_amounts_positive)), gc_amounts_positive, lw = 2, color = 'black')
+ax.plot(range(len(gc_amounts_negative)), gc_amounts_negative, lw = 2, color = 'black')
 
-
-
-
+plt.close()
+fig
 
 
 
