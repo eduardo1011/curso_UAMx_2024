@@ -105,3 +105,9 @@ with open('16S-ITGDB.fasta', 'r') as fq:
         f.write(re.sub(';', ' ', i)+'\n')
 f.close()
 ```
+
+### comando para construir base de datos
+
+```
+subprocess.call('makeblastdb -in 16S-ITGDB_mod.fasta -dbtype nucl -parse_seqids -out db/16S-ITGDB', shell = True)
+```
