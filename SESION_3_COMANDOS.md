@@ -37,6 +37,12 @@ idens = open_file(file = '16S-ITGDB_mod.fasta')
 columnas_tax = ['sacc', 'domain', 'phylum', 'class', 'order', 'family', 'genus', 'specie']
 taxonomia = DataFrame(idens, columns = columnas_tax)
 ```
+## Comando para ejecutar blastn
+```
+subprocess.call('blastn -db db/16S-ITGDB -query OTUs.fasta -evalue 1E-6 -outfmt "6" -out otus_vs_16S.txt', shell = True)
+```
+
+
 
 ```
 names = ["qacc","sacc", "pident", "length", "mismatch", "gapopen", "qstart", "qend", "sstart", "send", "evalue", "bitscore"]
