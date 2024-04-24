@@ -95,3 +95,13 @@ for i in fas:
         print('#-----------------------------------------------')
 ```
 
+#-
+
+```
+f = open('16S-ITGDB_mod.fasta', 'w')
+with open('16S-ITGDB.fasta', 'r') as fq:
+    for i in fq:
+        i = i.rstrip()
+        f.write(re.sub(';', ' ', i)+'\n')
+f.close()
+```
