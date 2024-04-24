@@ -32,7 +32,9 @@ taxonomia = DataFrame(idens, columns = columnas_tax)
 ```
 
 ```
-comandos
+names = ["qacc","sacc", "pident", "length", "mismatch", "gapopen", "qstart", "qend", "sstart", "send", "evalue", "bitscore"]
+df = pd.read_csv('otus_vs_16S.txt', sep = '\t', names = names)[['qacc','sacc','pident']]
+blastn = df.merge(taxonomia, on = 'sacc', how = 'left').sort_values(by = 'pident', ascending = False).reset_index(drop = True)
 ```
 
 ```
