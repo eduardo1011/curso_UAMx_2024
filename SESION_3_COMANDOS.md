@@ -121,7 +121,7 @@ for dom in dominios:
 ```
 
 ```
-comandos
+[re.sub('[|].*', '', re.sub('^...', '', i)) for i in prot]
 ```
 
 ```
