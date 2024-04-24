@@ -12,6 +12,13 @@
 # Comandos de la sesión 3 del curso
 
 ```
+import subprocess
+import pandas as pd
+from pandas import DataFrame
+from collections import Counter, OrderedDict
+import numpy as np
+
+
 def sacc_tax(file = ''):
     fas = {}
     with open(file) as fq:
