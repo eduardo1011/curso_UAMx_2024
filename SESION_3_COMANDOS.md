@@ -1,13 +1,13 @@
 # Antes de empezar
 
 ### Instalar lo siguiente
-> pandas
+> pandas  
 > requests
 
 ### Descargar los siguientes archivos
 
-OTUs.fasta
-vsearch.exe
+> OTUs.fasta  
+> vsearch.exe
 
 # Comandos de la sesión 3 del curso
 
