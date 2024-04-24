@@ -70,9 +70,9 @@ with open('otus_tax.sintax', 'r') as fq:
 vsearch = DataFrame([[a] + b.split(',') for a, b in [[i, tax[i][0]] for i in tax]], columns = ['qacc'] + columnas_tax[1:])
 ```
 
-```
-comandos
-```
+# Link al NCBI Blast
+
+https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LINK_LOC=blasthome
 
 ```
 comandos
