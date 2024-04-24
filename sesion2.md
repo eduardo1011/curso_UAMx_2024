@@ -16,7 +16,8 @@ https://1drv.ms/u/s!ArGs92xOZGDEoj51fPQo2s0yxab7?e=6AQsIc
 
 https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.8.1/ncbi-blast-2.8.1+-win64.exe
 
-
+## Install BLAST en linux
+$ sudo apt-get install ncbi-blast+
 
 
 
