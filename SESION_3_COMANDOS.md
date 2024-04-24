@@ -1,8 +1,8 @@
 # Antes de empezar
 
 ### Instalar lo siguiente
-pandas
-requests
+> pandas
+> requests
 
 ### Descargar los siguientes archivos
 
