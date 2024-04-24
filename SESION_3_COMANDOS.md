@@ -125,7 +125,8 @@ for dom in dominios:
 ```
 
 ```
-comandos
+url = 'https://rest.uniprot.org/uniprotkb/'+entry+'.txt'
+print(url)
 ```
 
 ```
