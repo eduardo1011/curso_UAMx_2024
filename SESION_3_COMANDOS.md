@@ -77,25 +77,47 @@ https://blast.ncbi.nlm.nih.gov/Blast.cgi?PROGRAM=blastn&PAGE_TYPE=BlastSearch&LI
 ```
 comandos
 ```
+# Buscar dominios dentro de proteínas
 
 ```
-comandos
+def open_file(file = ''):
+    fas = {}
+    with open(file) as fq:
+        for line in fq:
+            line = line.rstrip()
+            if '>' in line:
+                header = re.sub('>', '', line)
+                s = ''
+            else:
+                s += line
+            fas[header] =  s
+    return fas
 ```
 
 ```
-comandos
+prot = open_file(file = 'problema.fasta')
 ```
 
 ```
-comandos
+nombre = ['PROTEIN_KINASE_ATP', 'ZINC_FINGER_C2H2_1', 'PEROXIDASE_2', 'PYRUVATE_KINASE']
+dominios = ['[LIV]G[^P]G[^P][FYWMGSTNH][SGA][^PW][LIVCAT][^PD].[GSTACLIVMFY].{5,18}[LIVMFYWCSTAR][AIVP][LIVMFAGCKR]K',
+            'C.{2,4}C.{3}[LIVMFYWC].{8}H.{3,5}H',
+            '[SGATV][^D].{2}[LIVMA]R[LIVMA].[FW]H[^V][SAC]',
+            '[LIVAC].[LIVM]{2}[SAPCV]K[LIV]E[NKRST].[DEQHS][GSTA][LIVM]']
+dom_name = dict(zip(dominios, nombre))
 ```
 
 ```
-comandos
-```
-
-```
-comandos
+for dom in dominios:
+    print('●'*50)
+    print(dom_name[dom])
+    print(dom)
+    print('●'*50)
+    for i in prot:
+        seq = prot[i]
+        pat = re.findall(dom, seq)
+        if len(pat) > 0:
+            print(pat, i)
 ```
 
 ```
