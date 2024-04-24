@@ -209,7 +209,52 @@ fig
 ```
 
 ```
-comandos
+import matplotlib.pyplot as plt
+
+mas_d1 = [i for i in anotaciones if len(i[1]) == 2]
+mas_d1 = [i for i in mas_d1 if 'HELIX' not in i]
+mas_d1 = [i for i in mas_d1 if 'TURN' not in i]
+
+solo1 = [i for i in anotaciones if len(i[1]) == 1]
+
+fig = plt.figure(figsize=(15, 9))
+ax = fig.add_axes([0, 0, 1, 1])
+ax.set_xlim(0, 700)
+ax.set_ylim(-len(solo1) -1, len(mas_d1) + 1)
+
+N = 0
+for n in mas_d1:
+    A = n[0]
+    Bx1, Bx2 = n[1]
+    C = n[2]
+    if A == 'CHAIN':
+        Acol = 'deepskyblue'
+    else:
+        Acol = 'grey'
+    ax.plot([Bx1, Bx2-1], [N, N], color = Acol, solid_capstyle = 'butt', lw = 10)
+    ax.text(Bx2, N, '  '+A+' = '+ C, ha = 'left', va = 'center', fontsize = 12, weight="bold")
+    N += 1
+    
+N = -1    
+for n in solo1:
+    A = n[0]
+    Bx = n[1][0]
+    C = n[2]
+    ax.scatter(Bx, N, s = 50, c = 'red', marker = 's')
+    ax.text(Bx, N, '  '+A+' = '+ C, ha = 'left', va = 'center', fontsize = 11, weight="bold")
+    N -= 1
+    
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.spines['left'].set_visible(False)
+ax.get_yaxis().set_visible(False)
+ax.tick_params(bottom=True, right=False, top=False, left=True, width = 3, length=5, color='black')
+plt.xticks(fontsize=12, rotation=0, weight="bold")
+ax.set_xlabel('\nLength Protein (aa)', fontsize = 15, weight="bold")
+
+
+plt.close()
+fig
 ```
 
 ```
